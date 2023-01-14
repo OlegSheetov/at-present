@@ -1,0 +1,32 @@
+@import-normalize;
+.App {
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+    background-color: lightgray;
+}
+
+.App_Navbar {
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100vw;
+    height: 80px;
+    position: absolute;
+    bottom: 0px;
+}
+.App_Navbar_Plus_Button {
+    height: 70px;
+    width: 70px;
+    position: relative;
+    bottom: 10px;
+    text-align: center;
+    font-size: 3.2rem;
+    border-radius: 5px;
+}
+.App_Navbar_Link_Back, .App_Navbar_Link_Note_Report{
+    font-size:3.5rem;
+    text-decoration:none;
+    margin: 10px;
+}

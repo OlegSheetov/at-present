@@ -1,0 +1,37 @@
+.Note_Report_Plate{
+    background-color: lightgray;
+    width: 100vw;
+    height:90vh;
+    display:flex; 
+    flex-direction: column; 
+    align-items:center; 
+    justify-content:flex-start;
+
+}
+.Note_Report_Plate * {
+    width: 80%;
+    margin: 5px;
+    text-indent: 10px; 
+    line-height: 30px;
+    resize: none;
+    
+}
+.Note_Report_Plate_Title {
+    background-color: gray; 
+    color: white; 
+    font-size: 1.2rem; 
+    font-weight: 800; 
+    border: none;
+    outline:none;
+}
+.Note_Report_Plate_Text{
+    height: 30vh;
+    border: none;
+    outline:none;
+    
+}
+.Note_Report_Plate_CreateButton{
+    min-width: 160px;
+    width: 40%;
+}
+
