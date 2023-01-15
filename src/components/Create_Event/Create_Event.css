@@ -1,7 +1,7 @@
 .Create_Event_plate {
     width: 100vw;
-    
-    height: 96vh;
+    overflow: visible;
+    height: 100vh;
     background-color: lightgray;
 }
 .Create_Event_Inputs {
@@ -18,11 +18,11 @@
     resize: none;
     margin: 10px;
     font-size: 1.2rem;
-    border:none;
-    outline:none;
-    text-indent:10px;
+    border: none;
+    outline: none;
+    text-indent: 10px;
 }
-.Create_Event_Inputs_Header{
+.Create_Event_Inputs_Header {
     background-color: gray;
     color: white;
 }
@@ -30,12 +30,12 @@
 .Create_Event_Inputs_DataTime {
     text-align: center;
 }
-.Create_Event_Inputs_Description{
+.Create_Event_Inputs_Description {
     height: 20%;
 }
-.Create_Event_Inputs_CreateButton{
+.Create_Event_Inputs_CreateButton {
     width: 20%;
-    height:10%;
-    font-size: 1.2rem; 
-    border-radius:5px;
+    height: 10%;
+    font-size: 1.2rem;
+    border-radius: 5px;
 }

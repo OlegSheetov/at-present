@@ -17,11 +17,11 @@ function CalculateTime(start, end) {
 }
 
 onmessage = (message) => {
-    const Date2 = message.data[1];
-    const result = 'hello world '
-    postMessage(result);
-    //self.setInterval(() => {
-    //const Date1 = new Date();
-    //console.log(CalculateTime(Date1, Date2));
-    //}, 1000);
+    const Date2 = message.data[0];
+    self.setInterval(() => {
+    const Date1 = new Date();
+        // чтото не то с вычислениями вы дает не 10 дней а 10000
+        //postMessage(CalculateTime(Date2 , Date1));
+        //console.log(CalculateTime(Date1, Date2))
+    }, 1000);
 };

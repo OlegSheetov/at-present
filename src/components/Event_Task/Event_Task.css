@@ -9,7 +9,7 @@
 
 .Event_Task_plate {
     margin: 10px;
-    width: 80vw;
+    width: 90vw;
     max-width: 500px;
     height: 100px;
     background: gray;
@@ -18,6 +18,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    
 }
 
 .Event_Task_textplate {
@@ -26,6 +27,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 10px;
 }
 
 .Event_Task_title {
@@ -44,9 +46,26 @@
     font-size: 1rem;
 }
 
+.ButtonAndTimerPlate{
+    display: flex; 
+    flex-direction:column; 
+    align-items: center;
+    width: 50%;
+    margin: 10px;
+}
+
 .Event_Task_OkButton {
     font-size: 1.4rem;
     float: right;
     width: 50px;
     height: 50px;
+}
+.TimerPlate{
+    display: flex; 
+    flex-direction: row;
+    margin-top: 5px;
+}
+.TimerNumberPlate  {
+    width: 20%; 
+    text-align: center;
 }

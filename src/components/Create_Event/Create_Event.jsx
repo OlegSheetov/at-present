@@ -3,34 +3,26 @@ import { useNavigate } from "react-router-dom";
 import "./Create_Event.css";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-
-const localState = {
-    title: "",
-    description: "",
-    date: "",
-    key: 0,
-};
-
-function handleHeader(event) {
-    localState.title = event.target.value;
-}
-
-function handleDescription(event) {
-    localState.description = event.target.value;
-}
-
-function handleDate(event) {
-    localState.date = event.target.value;
-}
+import { useRef } from "react";
 
 export default function Create_Event() {
     const store = useSelector((state) => state.data);
     const Navigate = useNavigate("/");
     const dispatch = useDispatch();
+        const HeaderRef = useRef();
+    const DescriptionRef = useRef();
+    const DateRef = useRef();
 
     function postEvent() {
-        const key = new Date();
-        localState.key = key;
+        const localState = {
+            title: HeaderRef.current.value,
+            description: DescriptionRef.current.value,
+            date: DateRef.current.value,
+            key: 0,
+        };
+        const KeyDate = new Date();
+        localState.key = KeyDate.getTime();
+        console.log(localState.key);
         dispatch({ type: "At-present/add", payload: localState });
         Navigate("/");
     }
@@ -38,23 +30,23 @@ export default function Create_Event() {
     return (
         <section className="Create_Event_plate">
             <div className="Create_Event_Inputs">
-                <h1>Create your event.</h1>
                 <textarea
                     className="Create_Event_Inputs_Header"
                     type="text"
                     placeholder="Header"
-                    onChange={handleHeader}
+                    ref={HeaderRef}
                 />
                 <textarea
                     className="Create_Event_Inputs_Description"
                     type="text"
                     placeholder="desctiption"
-                    onChange={handleDescription}
+                    ref={DescriptionRef}
                 />
+                <p>End of Event</p>
                 <input
                     className="Create_Event_Inputs_DataTime"
                     type="datetime-local"
-                    onChange={handleDate}
+                    ref={DateRef}
                 />
                 <input
                     className="Create_Event_Inputs_CreateButton"

@@ -28,12 +28,15 @@ class App extends Component {
                             &#128214;
                         </Link>
                     </div>
+                    <Routes>
+                        <Route path="/" element={<Event_Task />}></Route>
+                        <Route
+                            path="/Create_Event"
+                            element={<Create_Event />}
+                        />
+                        <Route path="/Note_Report" element={<Note_Report />} />
+                    </Routes>
                 </div>
-                <Routes>
-                    <Route path="/" element={<Event_Task />}></Route>
-                    <Route path="/Create_Event" element={<Create_Event />} />
-                    <Route path="/Note_Report" element={<Note_Report />} />
-                </Routes>
             </HashRouter>
         );
     }

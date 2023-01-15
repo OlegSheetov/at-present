@@ -1,19 +1,26 @@
 import React from "react";
 import "./Event_Task.css";
 import { useSelector } from "react-redux";
+import { useRef } from "react";
 
-const worker = new Worker("Worker.js");
-const Date1 = new Date();
-const Date2 = new Date("Jan 31 , 2023");
-worker.postMessage([Date1, Date2]); // first date should be less then second
-Worker.onmessage = (message) => {
-    console.log(message.data);
-};
 export default function Event_Task() {
     const list = useSelector((state) => state.data);
     return (
         <section className="Event_Task">
             {list.map((item) => {
+                const Days = useRef();
+                const Hours = useRef();
+                const Minutes = useRef();
+                const Seconds = useRef();
+                const worker = new Worker("Worker.js");
+                worker.postMessage(item.date); // send end of event
+                worker.onmessage = (message) => {
+                    Days.current.value = message.data.Days;
+                    Hours.current.value = message.data.Hours;
+                    Minutes.current.value = message.data.Minutes;
+                    Seconds.current.value = message.data.Seconds;
+                };
+
                 return (
                     <div key={item.key} className="Event_Task_plate">
                         <div className="Event_Task_textplate">
@@ -22,11 +29,46 @@ export default function Event_Task() {
                                 {item.description}
                             </div>
                         </div>
-                        <input
-                            type="button"
-                            className="Event_Task_OkButton"
-                            value="&#9989;"
-                        />
+                        <div className="ButtonAndTimerPlate">
+                            <input
+                                type="button"
+                                className="Event_Task_OkButton"
+                                value="&#9989;"
+                            />
+                            <div className="TimerPlate">
+                                <input
+                                    type="text"
+                                    className="TimerNumberPlate"
+                                    ref={Days}
+                                    value='0'
+                                    disabled
+                                />
+                                :
+                                <input
+                                    type="text"
+                                    className="TimerNumberPlate"
+                                    value='0'
+                                    ref={Hours}
+                                    disabled
+                                />
+                                :
+                                <input
+                                    type="text"
+                                    className="TimerNumberPlate"
+                                    value='0'
+                                    ref={Minutes}
+                                    disabled
+                                />
+                                :
+                                <input
+                                    type="text"
+                                    className="TimerNumberPlate"
+                                    value='0'
+                                    ref={Seconds}
+                                    disabled
+                                />
+                            </div>
+                        </div>
                     </div>
                 );
             })}

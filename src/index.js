@@ -10,13 +10,13 @@ const initialData = {
         {
             title: "title",
             description: "description",
-            date:'',
+            date:'Jan 1, 2023',
             key: 1,
         },
         {
             title: "title",
             description: "description",
-            date:'',
+            date:'Jan 2 , 2023',
             key: '2',
         },
     ],
