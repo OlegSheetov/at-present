@@ -4,6 +4,8 @@ import { HashRouter, Route, Routes, Navigate, Link } from "react-router-dom";
 import Event_Task from "./components/Event_Task/Event_Task";
 import Create_Event from "./components/Create_Event/Create_Event";
 import Note_Report from "./components/Note_Report/Note_Report";
+import Component_Detail from "./components/Component_Detail/Component_Detail";
+import ReportList from "./components/ReportList/ReportList";
 
 class App extends Component {
     render() {
@@ -12,7 +14,7 @@ class App extends Component {
                 <div className="App">
                     <div className="App_Navbar">
                         <Link className="App_Navbar_Link_Back" to="/">
-                            &#128281;
+                            &#127968;
                         </Link>
                         <Link to="/Create_Event">
                             <input
@@ -23,7 +25,7 @@ class App extends Component {
                         </Link>
                         <Link
                             className="App_Navbar_Link_Note_Report"
-                            to="/Note_Report"
+                            to="/ReportList"
                         >
                             &#128214;
                         </Link>
@@ -35,6 +37,14 @@ class App extends Component {
                             element={<Create_Event />}
                         />
                         <Route path="/Note_Report" element={<Note_Report />} />
+                        <Route
+                            path="/:key"
+                            element={<Component_Detail />}
+                        ></Route>
+                        <Route
+                            path="/ReportList"
+                            element={<ReportList />}
+                        ></Route>
                     </Routes>
                 </div>
             </HashRouter>

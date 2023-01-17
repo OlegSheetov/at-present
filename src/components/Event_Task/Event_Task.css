@@ -1,6 +1,6 @@
 .Event_Task {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +18,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    
 }
 
 .Event_Task_textplate {
@@ -27,14 +26,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
     margin: 10px;
+}
+
+.Link {
+    color: black;
 }
 
 .Event_Task_title {
     width: 100%;
     float: left;
     font-size: 1.5rem;
-    margin: 5px 20px;
+    margin-bottom: 10px ;
     font-weight: 800;
 }
 
@@ -46,9 +50,9 @@
     font-size: 1rem;
 }
 
-.ButtonAndTimerPlate{
-    display: flex; 
-    flex-direction:column; 
+.ButtonAndTimerPlate {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     width: 50%;
     margin: 10px;
@@ -60,12 +64,12 @@
     width: 50px;
     height: 50px;
 }
-.TimerPlate{
-    display: flex; 
+.TimerPlate {
+    display: flex;
     flex-direction: row;
     margin-top: 5px;
 }
-.TimerNumberPlate  {
-    width: 20%; 
+.TimerNumberPlate {
+    width: 20%;
     text-align: center;
 }

@@ -25,7 +25,6 @@
     bottom: 10px;
     text-align: center;
     font-size: 3.2rem;
-    border-radius: 5px;
 }
 .App_Navbar_Link_Back, .App_Navbar_Link_Note_Report{
     font-size:2.5rem;

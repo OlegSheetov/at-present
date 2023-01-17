@@ -7,9 +7,9 @@ import { useRef } from "react";
 
 export default function Create_Event() {
     const store = useSelector((state) => state.data);
-    const Navigate = useNavigate("/");
+    const Navigate = useNavigate();
     const dispatch = useDispatch();
-        const HeaderRef = useRef();
+    const HeaderRef = useRef();
     const DescriptionRef = useRef();
     const DateRef = useRef();
 
@@ -17,12 +17,13 @@ export default function Create_Event() {
         const localState = {
             title: HeaderRef.current.value,
             description: DescriptionRef.current.value,
-            date: DateRef.current.value,
+            date: 0,
             key: 0,
         };
+        // Простой способ затолкать дату в обьект
+        localState.date = new Date(DateRef.current.value);
         const KeyDate = new Date();
         localState.key = KeyDate.getTime();
-        console.log(localState.key);
         dispatch({ type: "At-present/add", payload: localState });
         Navigate("/");
     }
@@ -51,7 +52,7 @@ export default function Create_Event() {
                 <input
                     className="Create_Event_Inputs_CreateButton"
                     type="button"
-                    value="create"
+                    value="+"
                     onClick={postEvent}
                 />
             </div>
