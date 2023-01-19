@@ -6,7 +6,7 @@ import Create_Event from "./components/Create_Event/Create_Event";
 import Note_Report from "./components/Note_Report/Note_Report";
 import Component_Detail from "./components/Component_Detail/Component_Detail";
 import ReportList from "./components/ReportList/ReportList";
-
+import NoteDetail from "./components/NoteDetail/NoteDetail";
 class App extends Component {
     render() {
         return (
@@ -44,6 +44,10 @@ class App extends Component {
                         <Route
                             path="/ReportList"
                             element={<ReportList />}
+                        ></Route>
+                        <Route
+                        path="/ReportList/:Notekey"
+                            element={<NoteDetail />}
                         ></Route>
                     </Routes>
                 </div>

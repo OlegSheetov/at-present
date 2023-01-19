@@ -1,12 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Create_Event.css";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useRef } from "react";
 
 export default function Create_Event() {
-    const store = useSelector((state) => state.data);
     const Navigate = useNavigate();
     const dispatch = useDispatch();
     const HeaderRef = useRef();
@@ -22,8 +20,7 @@ export default function Create_Event() {
         };
         // Простой способ затолкать дату в обьект
         localState.date = new Date(DateRef.current.value);
-        const KeyDate = new Date();
-        localState.key = KeyDate.getTime();
+        localState.key = localState.date.getTime();
         dispatch({ type: "At-present/add", payload: localState });
         Navigate("/");
     }

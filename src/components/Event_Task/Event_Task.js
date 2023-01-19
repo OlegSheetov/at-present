@@ -26,6 +26,7 @@ export default function Event_Task() {
                         worker.onmessage = (message) => {
                             // Затычка чтобы после размонтирования воркер
                             // не пытался присвоить значения
+                            // и ничего не делал
                         };
                     };
                 });

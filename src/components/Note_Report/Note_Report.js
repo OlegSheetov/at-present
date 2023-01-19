@@ -4,20 +4,22 @@ import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 export default function Note_Report() {
+    const TitleRef = useRef();
+    const TextRef = useRef();
+    const dispatch = useDispatch();
+    const Navigate = useNavigate();
+
     function PostNote() {
-        const TitleRef = useRef();
-        const TextRef = useRef();
-        const dispatch = useDispatch();
-        const Navigate = useNavigate()
         const Today = new Date();
         const LocalState = {
-            title: TitleRef.current.data,
-            text: TextRef.current.data,
+            title: TitleRef.current.value,
+            text: TextRef.current.value,
             date: Today,
-            key: Today.getTime(),
+            Notekey: Today.getTime(),
         };
-        dispatch({ type: "At-present/NoteAdd", payload: localState });
-        Navigate("/");
+        dispatch({ type: "At-present/NoteAdd", payload: LocalState });
+        console.log(LocalState);
+        Navigate("/ReportList");
     }
 
     return (
@@ -27,15 +29,20 @@ export default function Note_Report() {
                 type="text"
                 className="Note_Report_Plate_Title"
                 placeholder="Title"
+                ref={TitleRef}
+                defaultValue="Hello world"
             />
             <textarea
                 className="Note_Report_Plate_Text"
                 placeholder="text"
+                ref={TextRef}
+                defaultValue="Hello world"
             ></textarea>
             <input
                 className="Note_Report_Plate_CreateButton"
                 type="button"
-                value="Create Note/Report"
+                value="+"
+                onClick={PostNote}
             />
         </section>
     );
