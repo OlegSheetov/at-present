@@ -4,7 +4,7 @@ import { HashRouter, Route, Routes, Navigate, Link } from "react-router-dom";
 import Event_Task from "./components/Event_Task/Event_Task";
 import Create_Event from "./components/Create_Event/Create_Event";
 import Note_Report from "./components/Note_Report/Note_Report";
-import Component_Detail from "./components/Component_Detail/Component_Detail";
+import Event_detail from "./components/Event_detail/Event_detail";
 import ReportList from "./components/ReportList/ReportList";
 import NoteDetail from "./components/NoteDetail/NoteDetail";
 class App extends Component {
@@ -39,7 +39,7 @@ class App extends Component {
                         <Route path="/Note_Report" element={<Note_Report />} />
                         <Route
                             path="/:key"
-                            element={<Component_Detail />}
+                            element={<Event_detail />}
                         ></Route>
                         <Route
                             path="/ReportList"

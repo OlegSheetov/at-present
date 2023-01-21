@@ -18,7 +18,6 @@ export default function Note_Report() {
             Notekey: Today.getTime(),
         };
         dispatch({ type: "At-present/NoteAdd", payload: LocalState });
-        console.log(LocalState);
         Navigate("/ReportList");
     }
 
@@ -30,13 +29,13 @@ export default function Note_Report() {
                 className="Note_Report_Plate_Title"
                 placeholder="Title"
                 ref={TitleRef}
-                defaultValue="Hello world"
+                defaultValue="Note"
             />
             <textarea
                 className="Note_Report_Plate_Text"
                 placeholder="text"
                 ref={TextRef}
-                defaultValue="Hello world"
+                defaultValue="Text"
             ></textarea>
             <input
                 className="Note_Report_Plate_CreateButton"

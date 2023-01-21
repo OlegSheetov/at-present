@@ -24,5 +24,13 @@
     width: 80%;
     height: 20%;
     font-size: 1.0rem;
-
+    resize:none;
+}
+.NoteDetailChangeButton ,.NoteDeleteButton  {
+    width:60px; 
+    height: 50px;
+    margin: 10px;
+}
+.NoteDeleteButton{
+    color: red;
 }

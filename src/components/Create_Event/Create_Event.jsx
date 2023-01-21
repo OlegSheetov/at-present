@@ -24,7 +24,6 @@ export default function Create_Event() {
         dispatch({ type: "At-present/add", payload: localState });
         Navigate("/");
     }
-
     return (
         <section className="Create_Event_plate">
             <div className="Create_Event_Inputs">
@@ -32,18 +31,21 @@ export default function Create_Event() {
                     className="Create_Event_Inputs_Header"
                     type="text"
                     placeholder="Header"
+                    defaultValue='Title'
                     ref={HeaderRef}
                 />
                 <textarea
                     className="Create_Event_Inputs_Description"
                     type="text"
                     placeholder="desctiption"
+                    defaultValue="Description"
                     ref={DescriptionRef}
                 />
                 <p>End of Event</p>
                 <input
                     className="Create_Event_Inputs_DataTime"
                     type="datetime-local"
+                    defaultValue='2024-12-31T00:00'
                     ref={DateRef}
                 />
                 <input

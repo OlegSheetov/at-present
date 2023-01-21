@@ -11,7 +11,6 @@
     margin: 10px;
     width: 90vw;
     max-width: 500px;
-    height: 100px;
     background: gray;
     border-radius: 10px;
     display: flex;
@@ -32,6 +31,8 @@
 
 .Link {
     color: black;
+    box-sizing: border-box;
+    height: 100%;
 }
 
 .Event_Task_title {
@@ -44,7 +45,7 @@
 
 .Event_Task_desctiption {
     width: 100%;
-    height: 50%;
+    height: 30%;
     float: left;
     border-top: 2px solid black;
     font-size: 1rem;
