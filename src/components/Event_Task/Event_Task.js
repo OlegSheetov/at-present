@@ -13,14 +13,19 @@ export default function Event_Task() {
                 const Hours = useRef();
                 const Minutes = useRef();
                 const Seconds = useRef();
-                const worker = new Worker("Worker.js");
+
+
+                let worker = new Worker("Worker.js");
                 worker.postMessage(item.date); // send end of event
+
                 useEffect(() => {
+                    disableOkButton()
                     worker.onmessage = (message) => {
                         Days.current.value = message.data.Days;
                         Hours.current.value = message.data.Hours;
                         Minutes.current.value = message.data.Minutes;
                         Seconds.current.value = message.data.Seconds;
+                        disableOkButton();
                     };
                     return () => {
                         worker.onmessage = (message) => {
@@ -30,6 +35,45 @@ export default function Event_Task() {
                         };
                     };
                 });
+
+                //Время начала задачи сегодня
+                const starttime = item.startTime.split(":");
+                const EventStartTime = new Date();
+                EventStartTime.setHours(starttime[0]);
+                EventStartTime.setMinutes(starttime[1]);
+                EventStartTime.setSeconds(0);
+
+                //Время окончания задачи сегодня
+                const EventEndTime = new Date();
+                EventEndTime.setHours(item.date.getHours());
+                EventEndTime.setMinutes(item.date.getMinutes());
+                EventEndTime.setSeconds(0);
+
+                // Сейчас
+                const Now = new Date();
+
+                // ОкКнопка
+                const OKButtonRef = useRef();
+
+                function CountSpendetTime() {
+                    const spendedTimeMS = Now - EventStartTime;
+                    const spendedTimeHRS = Math.floor(
+                        spendedTimeMS / 1000 / 60 / 60
+                    );
+                    item.timeSpended += spendedTimeHRS;
+                    OKButtonRef.current.setAttribute("disabled", "");
+                    alert("Spended time added");
+                }
+
+                function disableOkButton() {
+                    // Функция отключает кнопку сохранения потраченного
+                    // на задачу времени до начала события и после.
+                    if (Now < EventStartTime || Now > EventEndTime) {
+                        OKButtonRef.current.setAttribute("disabled", " ");
+                    } else {
+                        OKButtonRef.current.removeAttribute("disabled", " ");
+                    }
+                }
 
                 return (
                     <div key={item.key} className="Event_Task_plate">
@@ -48,6 +92,8 @@ export default function Event_Task() {
                                 type="button"
                                 className="Event_Task_OkButton"
                                 value="&#9989;"
+                                ref={OKButtonRef}
+                                onClick={CountSpendetTime}
                             />
                             <div className="TimerPlate">
                                 <input

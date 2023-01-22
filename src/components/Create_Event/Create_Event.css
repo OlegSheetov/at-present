@@ -13,7 +13,8 @@
 }
 .Create_Event_Inputs_Header,
 .Create_Event_Inputs_Description,
-.Create_Event_Inputs_DataTime {
+.Create_Event_Inputs_DataTime,
+.Create_Event_Inputs_StartTime {
     width: 80%;
     resize: none;
     margin: 10px;
@@ -26,8 +27,8 @@
     background-color: gray;
     color: white;
 }
-
-.Create_Event_Inputs_DataTime {
+.Create_Event_Inputs_DataTime,
+.Create_Event_Inputs_StartTime {
     text-align: center;
 }
 .Create_Event_Inputs_Description {

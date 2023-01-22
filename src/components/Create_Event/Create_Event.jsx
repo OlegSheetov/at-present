@@ -10,11 +10,13 @@ export default function Create_Event() {
     const HeaderRef = useRef();
     const DescriptionRef = useRef();
     const DateRef = useRef();
+    const StartTimeRef = useRef();
 
     function postEvent() {
         const localState = {
             title: HeaderRef.current.value,
             description: DescriptionRef.current.value,
+            startTime: StartTimeRef.current.value,
             date: 0,
             key: 0,
         };
@@ -31,7 +33,7 @@ export default function Create_Event() {
                     className="Create_Event_Inputs_Header"
                     type="text"
                     placeholder="Header"
-                    defaultValue='Title'
+                    defaultValue="Title"
                     ref={HeaderRef}
                 />
                 <textarea
@@ -41,11 +43,19 @@ export default function Create_Event() {
                     defaultValue="Description"
                     ref={DescriptionRef}
                 />
+                <p>Start time (Time when you start this task everyday):</p>
+                <input
+                    className="Create_Event_Inputs_StartTime"
+                    type="time"
+                    defaultValue="11:00"
+                    ref={StartTimeRef}
+                />
+
                 <p>End of Event</p>
                 <input
                     className="Create_Event_Inputs_DataTime"
                     type="datetime-local"
-                    defaultValue='2024-12-31T00:00'
+                    defaultValue="2024-12-31T00:00"
                     ref={DateRef}
                 />
                 <input

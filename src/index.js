@@ -6,8 +6,8 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 
 // Это просто костыль. С помощью этого кода поставил ключ и дату
-const Date1 = new Date("Jan 31 , 2023");
-const Date2 = new Date("Dec 31 , 2023");
+const Date1 = new Date("2023-01-31T12:54" );
+const Date2 = new Date("2023-12-31T21:00");
 const D1 = Date1.getTime();
 const D2 = Date2.getTime();
 const Date3 = new Date("Jun 30 , 2023");
@@ -20,14 +20,18 @@ const initialData = {
         {
             title: "title1",
             description: "description",
+            startTime: String('10:00'),
             date: Date1,
             key: D1,
+            timeSpended: Number()
         },
         {
             title: "NewYear23",
             description: "description",
+            startTime: String('00:00'),
             date: Date2,
             key: D2,
+            timeSpended: Number()
         },
     ],
     reports: [

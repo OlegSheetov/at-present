@@ -17,10 +17,12 @@ export default function Event_detail() {
     const DeedTitleRef = useRef();
     const DeedDescriptionRef = useRef();
     const DeedDateRef = useRef();
+    const StartTimeRef = useRef();
     function ChangeEvent() {
         deed.title = DeedTitleRef.current.value;
         deed.description = DeedDescriptionRef.current.value;
         deed.date = new Date(DeedDateRef.current.value);
+        deed.startTime = StartTimeRef.current.value;
         Navigate("/");
         alert("Event was changed");
     }
@@ -43,11 +45,22 @@ export default function Event_detail() {
                 defaultValue={deed.description}
                 ref={DeedDescriptionRef}
             ></textarea>
-            <p className="EventDetailDate">{String(deed.date)}</p>
+            <p className="EventDetailSpendedTime">
+                Spended Time(Hours): {String(deed.timeSpended)}
+            </p>
+            <p>Start Time </p>
+            <input
+                type="time"
+                defaultValue={deed.startTime}
+                ref={StartTimeRef}
+            />
+            <p className="EventDetailDate">Current date: {String(deed.date)}</p>
             <input
                 className="EventDetailDate"
                 type="datetime-local"
                 ref={DeedDateRef}
+                defaultValue={String(deed.date)}
+            
             />
             <div className="EventDetailInputs">
                 <input
