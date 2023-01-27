@@ -1,8 +1,17 @@
+@keyframes slideInFromleft {
+    0% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
 .Create_Event_plate {
+    animation: 1500ms ease-out 0s 1 forwards slideInFromleft;
     width: 100vw;
     overflow: visible;
     height: 100%;
-    background-color: lightgray;
+    background-color: white;
 }
 .Create_Event_Inputs {
     width: 100%;
@@ -23,16 +32,19 @@
     outline: none;
     text-indent: 10px;
 }
-.Create_Event_Inputs_Header {
-    background-color: gray;
-    color: white;
+.Create_Event_Inputs_Header,
+.Create_Event_Inputs_Description {
+    box-shadow: 0px 10px 10px 0px lightgray;
 }
 .Create_Event_Inputs_DataTime,
 .Create_Event_Inputs_StartTime {
     text-align: center;
+    border: 1px solid lightgray;
+    box-shadow: 0px 10px 10px 0px lightgray;
 }
 .Create_Event_Inputs_Description {
     height: 20%;
+    border-top: 3px dashed lightgray;
 }
 .Create_Event_Inputs_CreateButton {
     width: 7%;

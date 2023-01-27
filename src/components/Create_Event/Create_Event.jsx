@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Create_Event.css";
 import { useDispatch } from "react-redux";
 import { useRef } from "react";
+import CreateIcon from '../../UI/plus-square.svg'
 
 export default function Create_Event() {
     const Navigate = useNavigate();
@@ -58,10 +59,9 @@ export default function Create_Event() {
                     defaultValue="2024-12-31T00:00"
                     ref={DateRef}
                 />
-                <input
+                <img
                     className="Create_Event_Inputs_CreateButton"
-                    type="button"
-                    value="+"
+                    src={CreateIcon}
                     onClick={postEvent}
                 />
             </div>

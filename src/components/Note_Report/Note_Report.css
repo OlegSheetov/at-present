@@ -1,40 +1,36 @@
-.Note_Report_Plate{
-    background-color: lightgray;
+.Note_Report_Plate {
     width: 100vw;
-    height:90vh;
-    display:flex; 
-    flex-direction: column; 
-    align-items:center; 
-    justify-content:flex-start;
-
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 .Note_Report_Plate * {
     width: 80%;
     margin: 5px;
-    text-indent: 10px; 
+    text-indent: 10px;
     line-height: 30px;
     resize: none;
-    
 }
 .Note_Report_Plate_Title {
-    background-color: gray; 
-    color: white; 
-    font-size: 1.2rem; 
-    font-weight: 800; 
+    background-color: lightgray;
+    font-size: 1.2rem;
+    font-weight: 800;
     border: none;
-    outline:none;
+    outline: none;
 }
-.Note_Report_Plate_Text{
+.Note_Report_Plate_Text {
     height: 30vh;
     border: none;
-    outline:none;
+    outline: none;
+    border: 1px dashed black;
 }
-.Note_Report_Plate_CreateButton{
+.Note_Report_Plate_CreateButton {
     min-width: 50px;
     min-height: 50px;
     width: 50px;
     height: 50px;
     text-indent: 0px;
-    font-size: 2.0rem;
+    font-size: 2rem;
 }
-

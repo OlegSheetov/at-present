@@ -3,7 +3,8 @@ import "./Event_Task.css";
 import { useSelector } from "react-redux";
 import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import create from '../../UI/CalendarPlus.svg'
+import check from '../../UI/check.svg'
 export default function Event_Task() {
     const list = useSelector((state) => state.data);
     return (
@@ -14,12 +15,11 @@ export default function Event_Task() {
                 const Minutes = useRef();
                 const Seconds = useRef();
 
-
                 let worker = new Worker("Worker.js");
                 worker.postMessage(item.date); // send end of event
 
                 useEffect(() => {
-                    disableOkButton()
+                    disableOkButton();
                     worker.onmessage = (message) => {
                         Days.current.value = message.data.Days;
                         Hours.current.value = message.data.Hours;
@@ -88,12 +88,11 @@ export default function Event_Task() {
                             </Link>
                         </div>
                         <div className="ButtonAndTimerPlate">
-                            <input
-                                type="button"
+                            <img
                                 className="Event_Task_OkButton"
-                                value="&#9989;"
                                 ref={OKButtonRef}
                                 onClick={CountSpendetTime}
+                                src={check}
                             />
                             <div className="TimerPlate">
                                 <input
@@ -132,6 +131,9 @@ export default function Event_Task() {
                     </div>
                 );
             })}
+            <Link to="/Create_Event">
+                <img src={create} alt="create" />
+            </Link>
         </section>
     );
 }

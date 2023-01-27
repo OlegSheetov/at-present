@@ -1,22 +1,37 @@
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
 .Event_Task {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: lightgray;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
 .Event_Task_plate {
     margin: 10px;
     width: 90vw;
     max-width: 500px;
-    background: gray;
-    border-radius: 10px;
+    background: white;
+    box-shadow: 0px 10px 10px 0px grey;
+    border-radius: 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    transition-duration: 1s;
+}
+.Event_Task_plate:hover {
+    transition-duration: 1s;
+    max-width: 550px;
+    box-shadow: 0px 10px 50px 10px gray; 
 }
 
 .Event_Task_textplate {
@@ -33,37 +48,45 @@
     color: black;
     box-sizing: border-box;
     height: 100%;
+    width:100%;
 }
 
 .Event_Task_title {
     width: 100%;
     float: left;
     font-size: 1.5rem;
-    margin-bottom: 10px ;
-    font-weight: 800;
+    margin-bottom: 10px;
+    text-align: left;
+    text-indent:  10px;
 }
 
 .Event_Task_desctiption {
     width: 100%;
     height: 30%;
     float: left;
-    border-top: 2px solid black;
     font-size: 1rem;
+    text-align: left;
+    text-indent:  10px;
 }
 
 .ButtonAndTimerPlate {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     width: 50%;
     margin: 10px;
 }
 
 .Event_Task_OkButton {
-    font-size: 1.4rem;
     float: right;
     width: 50px;
     height: 50px;
+    margin: 0px 10%;
+    font-size: 1.4rem;
+    outline: none;
+    background: none;
+    border:none;
+
 }
 .TimerPlate {
     display: flex;
@@ -71,6 +94,10 @@
     margin-top: 5px;
 }
 .TimerNumberPlate {
+    background-color:white;
     width: 20%;
     text-align: center;
+    outline:none;
+    border:none;
+    border-radius: 5px;
 }

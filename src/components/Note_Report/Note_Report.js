@@ -3,6 +3,7 @@ import "./Note_Report.css";
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import create from '../../UI/plus-square.svg'
 export default function Note_Report() {
     const TitleRef = useRef();
     const TextRef = useRef();
@@ -37,11 +38,10 @@ export default function Note_Report() {
                 ref={TextRef}
                 defaultValue="Text"
             ></textarea>
-            <input
+            <img
                 className="Note_Report_Plate_CreateButton"
-                type="button"
-                value="+"
                 onClick={PostNote}
+                src={create}
             />
         </section>
     );

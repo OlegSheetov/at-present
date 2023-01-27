@@ -7,6 +7,8 @@ import Note_Report from "./components/Note_Report/Note_Report";
 import Event_detail from "./components/Event_detail/Event_detail";
 import ReportList from "./components/ReportList/ReportList";
 import NoteDetail from "./components/NoteDetail/NoteDetail";
+import home from './UI/House.svg'
+import note from './UI/BookOpen.svg'
 class App extends Component {
     render() {
         return (
@@ -14,20 +16,13 @@ class App extends Component {
                 <div className="App">
                     <div className="App_Navbar">
                         <Link className="App_Navbar_Link_Back" to="/">
-                            &#127968;
-                        </Link>
-                        <Link to="/Create_Event">
-                            <input
-                                className="App_Navbar_Plus_Button"
-                                type="button"
-                                value="+"
-                            />
+                            <img src={home} alt="back" />
                         </Link>
                         <Link
                             className="App_Navbar_Link_Note_Report"
                             to="/ReportList"
                         >
-                            &#128214;
+                            <img src={note} alt="note" />
                         </Link>
                     </div>
                     <Routes>

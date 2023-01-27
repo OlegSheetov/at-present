@@ -3,10 +3,9 @@ import { useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./Event_detail.css";
+import EditIcon from '../../UI/edit.svg'
+import DeleteIcon from '../../UI/trash-2.svg'
 
-function DeleteCurrentEvent() {
-    // ....
-}
 export default function Event_detail() {
     let { key } = useParams();
     const deed = useSelector((state) => {
@@ -34,12 +33,12 @@ export default function Event_detail() {
     }
     return (
         <section className="EventDetail">
-            <textarea
+            <input
                 type="text"
                 className="EventDetailTitle"
                 defaultValue={deed.title}
                 ref={DeedTitleRef}
-            ></textarea>
+            ></input>
             <textarea
                 className="EventDetailDescription"
                 defaultValue={deed.description}
@@ -48,31 +47,31 @@ export default function Event_detail() {
             <p className="EventDetailSpendedTime">
                 Spended Time(Hours): {String(deed.timeSpended)}
             </p>
-            <p>Start Time </p>
-            <input
-                type="time"
-                defaultValue={deed.startTime}
-                ref={StartTimeRef}
-            />
+            <div className="EventDetailStartTimePlate">
+                <p>Start Time : </p>
+                <input
+                    className="EventDetailStartTime"
+                    type="time"
+                    defaultValue={deed.startTime}
+                    ref={StartTimeRef}
+                />
+            </div>
             <p className="EventDetailDate">Current date: {String(deed.date)}</p>
             <input
                 className="EventDetailDate"
                 type="datetime-local"
                 ref={DeedDateRef}
-                defaultValue={String(deed.date)}
-            
+                defaultValue={deed.date.toISOString().replace(".000Z", "")}
             />
             <div className="EventDetailInputs">
-                <input
+                <img
                     className="EventDetailChangeButton"
-                    type="button"
-                    value="change"
+                    src={EditIcon}
                     onClick={ChangeEvent}
                 />
-                <input
+                <img
                     className="EventDetailDeleteButton"
-                    type="button"
-                    value="delete"
+                    src={DeleteIcon}
                     onClick={DeleteEvent}
                 />
             </div>

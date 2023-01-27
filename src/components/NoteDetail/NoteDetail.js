@@ -3,6 +3,8 @@ import "./NoteDetail.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { useRef } from "react";
+import EditIcon from '../../UI/edit.svg'
+import DeleteIcon from '../../UI/trash-2.svg'
 export default function NoteDetail() {
     const dispatch = useDispatch();
     let { Notekey } = useParams();
@@ -43,16 +45,14 @@ export default function NoteDetail() {
                 ref={NoteTextRef}
             ></textarea>
             <div className="NoteDetailInputs">
-                <input
+                <img
                     className="NoteDetailChangeButton"
-                    type="button"
-                    value="Change"
+                    src={EditIcon}
                     onClick={ChangeNote}
                 />
-                <input
+                <img
                     className="NoteDeleteButton"
-                    type="button"
-                    value="delete"
+                    src={DeleteIcon}
                     onClick={DeleteNote}
                 />
             </div>
