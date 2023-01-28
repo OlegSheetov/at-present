@@ -25,7 +25,7 @@ export default function Note_Report() {
     return (
         <section className="Note_Report_Plate">
             <h1 className="Header">Create your note/report</h1>
-            <textarea
+            <input
                 type="text"
                 className="Note_Report_Plate_Title"
                 placeholder="Title"

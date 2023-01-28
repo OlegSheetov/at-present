@@ -1,4 +1,13 @@
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
 .EventDetail {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
     height: 80%;
     width: 100%;
     display: flex;

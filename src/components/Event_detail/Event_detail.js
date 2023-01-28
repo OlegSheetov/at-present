@@ -1,10 +1,10 @@
 import React from "react";
 import { useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "./Event_detail.css";
-import EditIcon from '../../UI/edit.svg'
-import DeleteIcon from '../../UI/trash-2.svg'
+import EditIcon from "../../UI/edit.svg";
+import DeleteIcon from "../../UI/trash-2.svg";
 
 export default function Event_detail() {
     let { key } = useParams();
@@ -12,22 +12,28 @@ export default function Event_detail() {
         return state.data.find((current) => current.key === Number(key));
     });
     const store = useSelector((state) => state.data);
+    const dispatch = useDispatch();
     const Navigate = useNavigate();
     const DeedTitleRef = useRef();
     const DeedDescriptionRef = useRef();
     const DeedDateRef = useRef();
     const StartTimeRef = useRef();
     function ChangeEvent() {
-        deed.title = DeedTitleRef.current.value;
-        deed.description = DeedDescriptionRef.current.value;
-        deed.date = new Date(DeedDateRef.current.value);
-        deed.startTime = StartTimeRef.current.value;
+        dispatch({
+            type: "At-present/change",
+            payload: {
+                key: key,
+                title: DeedTitleRef.current.value,
+                description: DeedDescriptionRef.current.value,
+                date: DeedDateRef.current.value,
+                startTime: StartTimeRef.current.value, 
+            },
+        });
         Navigate("/");
         alert("Event was changed");
     }
     function DeleteEvent() {
-        const index = store.indexOf(deed);
-        store.splice(index, 1);
+        dispatch({ type: "At-present/delete", payload: deed });
         Navigate("/");
         alert("Event was deleted");
     }

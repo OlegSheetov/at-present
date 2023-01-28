@@ -7,8 +7,9 @@ import Note_Report from "./components/Note_Report/Note_Report";
 import Event_detail from "./components/Event_detail/Event_detail";
 import ReportList from "./components/ReportList/ReportList";
 import NoteDetail from "./components/NoteDetail/NoteDetail";
-import home from './UI/House.svg'
-import note from './UI/BookOpen.svg'
+import home from "./UI/House.svg";
+import note from "./UI/BookOpen.svg";
+import settings from "./UI/settings.svg";
 class App extends Component {
     render() {
         return (
@@ -32,16 +33,13 @@ class App extends Component {
                             element={<Create_Event />}
                         />
                         <Route path="/Note_Report" element={<Note_Report />} />
-                        <Route
-                            path="/:key"
-                            element={<Event_detail />}
-                        ></Route>
+                        <Route path="/:key" element={<Event_detail />}></Route>
                         <Route
                             path="/ReportList"
                             element={<ReportList />}
                         ></Route>
                         <Route
-                        path="/ReportList/:Notekey"
+                            path="/ReportList/:Notekey"
                             element={<NoteDetail />}
                         ></Route>
                     </Routes>

@@ -1,4 +1,13 @@
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
 .NoteDetailPlate {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
     height: 100%;
     width: 100%;
     display: flex;
@@ -19,12 +28,15 @@
 .NoteDetailTitle {
     width: 80%;
     height: 10%;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-indent: 20px;
 }
 .NoteDetailText {
     width: 80%;
     height: 40%;
     font-size: 1.0rem;
+    text-indent: 20px;
     resize:none;
     border-top: 2px dashed lightgray;
 }
