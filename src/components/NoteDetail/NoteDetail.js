@@ -3,8 +3,8 @@ import "./NoteDetail.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { useRef } from "react";
-import EditIcon from '../../UI/edit.svg'
-import DeleteIcon from '../../UI/trash-2.svg'
+import EditIcon from "../../UI/edit.svg";
+import DeleteIcon from "../../UI/trash-2.svg";
 export default function NoteDetail() {
     const dispatch = useDispatch();
     let { Notekey } = useParams();
@@ -18,14 +18,19 @@ export default function NoteDetail() {
     const NoteTitleRef = useRef();
     const NoteTextRef = useRef();
     function ChangeNote() {
-        Note.title = NoteTitleRef.current.value;
-        Note.text = NoteTextRef.current.value;
+        dispatch({
+            type: "At-present/NoteChange",
+            payload: {
+                key: Notekey, 
+                title: NoteTitleRef.current.value,
+                text: NoteTextRef.current.value,
+            },
+        });
         Navigate("/ReportList");
         alert("Note was changed.");
     }
     function DeleteNote() {
-        const index = store.indexOf(Note);
-        store.splice(index, 1);
+        dispatch({ type: "At-present/NoteDelete" , payload: Notekey });
         Navigate("/ReportList");
         alert("Note was deleted.");
     }

@@ -35,7 +35,7 @@
 .NoteDetailText {
     width: 80%;
     height: 40%;
-    font-size: 1.0rem;
+    text-align: justify;
     text-indent: 20px;
     resize:none;
     border-top: 2px dashed lightgray;

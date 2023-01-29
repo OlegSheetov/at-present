@@ -16,15 +16,21 @@ export default function Event_Task() {
                 const Seconds = useRef();
 
                 let worker = new Worker("Worker.js");
-                worker.postMessage(item.date); // send end of event
+                const ItemDate = new Date(item.date)
+                worker.postMessage(ItemDate); // send end of event
 
                 useEffect(() => {
                     disableOkButton();
                     worker.onmessage = (message) => {
+                        if(message.data.Days > 0 ) { 
                         Days.current.value = message.data.Days;
                         Hours.current.value = message.data.Hours;
                         Minutes.current.value = message.data.Minutes;
                         Seconds.current.value = message.data.Seconds;
+                        }
+                        else ( 
+                        worker.terminate()
+                        )
                         disableOkButton();
                     };
                     return () => {
@@ -45,8 +51,8 @@ export default function Event_Task() {
 
                 //Время окончания задачи сегодня
                 const EventEndTime = new Date();
-                EventEndTime.setHours(item.date.getHours());
-                EventEndTime.setMinutes(item.date.getMinutes());
+                EventEndTime.setHours(ItemDate.getHours());
+                EventEndTime.setMinutes(ItemDate.getMinutes());
                 EventEndTime.setSeconds(0);
 
                 // Сейчас

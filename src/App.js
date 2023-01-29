@@ -10,6 +10,7 @@ import NoteDetail from "./components/NoteDetail/NoteDetail";
 import home from "./UI/House.svg";
 import note from "./UI/BookOpen.svg";
 import settings from "./UI/settings.svg";
+import RemoveSavedData from './UI/trash-2.svg'
 class App extends Component {
     render() {
         return (
@@ -25,6 +26,7 @@ class App extends Component {
                         >
                             <img src={note} alt="note" />
                         </Link>
+                        <img src={RemoveSavedData} alt="RemoveSavedData" onClick={()=>{localStorage.removeItem('redux')}}/>
                     </div>
                     <Routes>
                         <Route path="/" element={<Event_Task />}></Route>

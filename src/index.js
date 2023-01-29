@@ -6,14 +6,10 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 
 // Это просто костыль. С помощью этого кода поставил ключ и дату
-const Date1 = new Date("2023-01-31T12:54");
 const Date2 = new Date("2023-12-31T21:00");
-const D1 = Date1.getTime();
 const D2 = Date2.getTime();
-const Date3 = new Date("Jun 30 , 2023");
-const Date4 = new Date("Jun 2 , 2024");
+const Date3 = new Date("Jan 01 , 2023");
 const D3 = Date3.getTime();
-const D4 = Date4.getTime();
 
 let initialData = {
     data: [
@@ -51,7 +47,6 @@ function rootReducer(state, action) {
             return { ...state };
         case "At-present/change":
             // change code
-            console.log(action.payload);
             const deed = state.data.find((current) => {
                 return current.key === Number(action.payload.key);
             });
@@ -59,14 +54,32 @@ function rootReducer(state, action) {
             deed.description = action.payload.description;
             deed.date = new Date(action.payload.date);
             deed.startTime = action.payload.startTime;
-            console.log(deed);
             return { ...state };
         case "At-present/NoteAdd":
             state.reports.push(action.payload);
             return { ...state };
+        case "At-present/NoteDelete":
+            //delete note code
+            const note = state.reports.find((current) => {
+                return current.Notekey === Number(action.payload);
+            });
+            const Noteindex = state.reports.indexOf(note);
+            state.reports.splice(Noteindex, 1);
+            return { ...state };
+        case "At-present/NoteChange":
+            //change note code
+            const Note = state.reports.find((current) => {
+                return current.Notekey === Number(action.payload.key);
+            });
+            Note.title = action.payload.title;
+            Note.text = action.payload.text;
+            return { ...state };
         default:
             return state;
     }
+}
+if (localStorage.redux != null) {
+    initialData = JSON.parse(localStorage.getItem("redux"));
 }
 const store = createStore(rootReducer, initialData);
 store.subscribe(() => {
