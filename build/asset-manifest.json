@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/at-present/static/css/main.f45fbde9.css",
+    "main.js": "/at-present/static/js/main.786cd5ab.js",
+    "static/media/settings.svg": "/at-present/static/media/settings.dae753293a258bcd145324d63858adf8.svg",
+    "static/media/House.svg": "/at-present/static/media/House.c2f930d24c1442b402e0cdebadee603c.svg",
+    "static/media/BookOpen.svg": "/at-present/static/media/BookOpen.cd5d68ac57623c5b06e74e62ef88d2ff.svg",
+    "static/media/CalendarPlus.svg": "/at-present/static/media/CalendarPlus.463eaccb5544fdcf399aa2aaa43af07a.svg",
+    "static/media/trash-2.svg": "/at-present/static/media/trash-2.4105e7d8dc1ab3c937346bd760c59c57.svg",
+    "static/media/edit.svg": "/at-present/static/media/edit.0d9c390abd0b647c3f1e9a7382094d68.svg",
+    "static/media/plus-square.svg": "/at-present/static/media/plus-square.275c06a2665756120f65671f63eeeb92.svg",
+    "index.html": "/at-present/index.html",
+    "static/media/check.svg": "/at-present/static/media/check.d477ec28c652cfb43e71acd5513e25ee.svg",
+    "main.f45fbde9.css.map": "/at-present/static/css/main.f45fbde9.css.map",
+    "main.786cd5ab.js.map": "/at-present/static/js/main.786cd5ab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f45fbde9.css",
+    "static/js/main.786cd5ab.js"
+  ]
+}
